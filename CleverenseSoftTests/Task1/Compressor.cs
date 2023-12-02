@@ -60,13 +60,32 @@ namespace CleverenseSoftTests.Task1
         public String Decompression(String line)
         {
             StringBuilder strBuilder = new StringBuilder();
-            
+
+            StringBuilder strBuilderNumber = new StringBuilder(); 
+
             for (Int32 i = 0; i < line.Length; i++)
             {
+                strBuilderNumber.Clear();
+
                 if (Char.IsNumber(line[i]))
                 {
-                    Int32 countOfSymbol =  Convert.ToInt32(line[i].ToString());
-                    strBuilder.Append(line[i - 1], countOfSymbol - 1);
+                    Int32 j;
+                    for (j = i; j < line.Length; j++)
+                    {
+                        if (Char.IsNumber(line[j]))
+                        {
+                            strBuilderNumber.Append(line[j]);
+                            continue;
+                        }
+                        break;
+                    }
+                    i = j - 1;
+                }
+                
+                if (strBuilderNumber.Length > 0)
+                {
+                    Int32 countOfSymbol =  Convert.ToInt32(strBuilderNumber.ToString());
+                    strBuilder.Append(line[i - strBuilderNumber.Length], countOfSymbol - 1);
                     continue;
                 }
                 strBuilder.Append(line[i]);   
