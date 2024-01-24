@@ -2,7 +2,7 @@
 
 namespace CleverenseSoftTests.Task1
 {
-    internal interface ICompression
+    internal interface ICompressor
     {
         String Compression(String line);
         String Decompression(String line);

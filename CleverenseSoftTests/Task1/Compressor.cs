@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CleverenseSoftTests.Task1
 {
-    internal class Compressor : ICompression
+    internal class Compressor : ICompressor
     {
         /// <summary>
         /// aaabbc to a3b2c
